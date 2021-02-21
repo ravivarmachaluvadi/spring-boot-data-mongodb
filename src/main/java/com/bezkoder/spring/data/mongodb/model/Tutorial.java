@@ -3,6 +3,9 @@ package com.bezkoder.spring.data.mongodb.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Document(collection = "tutorials")
 public class Tutorial {
   @Id
@@ -11,6 +14,7 @@ public class Tutorial {
   private String title;
   private String description;
   private boolean published;
+  private List<String> authors=new ArrayList<>();
 
   public Tutorial() {
 
@@ -48,6 +52,14 @@ public class Tutorial {
 
   public void setPublished(boolean isPublished) {
     this.published = isPublished;
+  }
+
+  public List<String> getAuthors() {
+    return authors;
+  }
+
+  public void setAuthors(List<String> authors) {
+    this.authors = authors;
   }
 
   @Override
